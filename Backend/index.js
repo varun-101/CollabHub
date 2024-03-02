@@ -50,6 +50,8 @@ app.get("/check", async (req,res)=>{
     });
 })
 
+app.get()
+
 app.listen(port , ()=>{
     console.log("Port Running...")
 })
