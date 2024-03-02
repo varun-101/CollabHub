@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import bcrypt from "bcrypt";
 import cors from "cors";
 import { log } from "console";
+import axios from "axios";
 
 const app = express();
 const port = 8081;
@@ -84,5 +85,25 @@ app.listen(port , ()=>{
 
 //postgresql://varun:Xrl-b1P6b_d0vws_A7yiwA@collabhub-8778.8nk.gcp-asia-southeast1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full"
 
-//collab code from here
+//github api from here
+const API_URL = "https://api.github.com/search/repositories";
 
+const yourBearerToken = "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";
+const config = {
+  headers: { Authorization: `Bearer ${yourBearerToken}` },
+};
+
+app.post("/git", async (req, res) => {
+    try {
+        console.log(req.body);
+        const query = req.body.query
+        const sort = req.body.sort
+      const result = await axios.get(`https://api.github.com/search/repositories?q=${query}&sort=${sort}`, config);
+    //   console.log(result);
+      res.json(result.data)
+    //   res.render(JSON.stringify(result.data) );
+    } catch (error) {
+    //   res.render(JSON.stringify(error.response.data) );
+    console.log(error);
+    }
+  });
