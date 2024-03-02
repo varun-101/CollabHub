@@ -50,7 +50,17 @@ app.get("/check", async (req,res)=>{
     });
 })
 
-app.get()
+app.get("/register", async(req,res)=>{
+    const name = "deva"
+    const email = "hellodeva@gmail.com"
+    const number = 1234567890
+    await db.query("INSERT INTO userdata (name,email,number) VALUES ($1,$2,$3)", [
+        name,
+        email,
+        number
+      ]);
+    res.json("uploaded")
+})
 
 app.listen(port , ()=>{
     console.log("Port Running...")
