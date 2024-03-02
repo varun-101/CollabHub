@@ -23,6 +23,7 @@ import "./index.css";
 import Signup from "./Routes/Signup";
 import Profile from "./Routes/Profile";
 import Login from "./Components/login/login";
+import Register from "./Components/register/register";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />
+  },
+  {
+    path: "/register",
+    element: <Register />
   },
   {
     path: "/signup",
