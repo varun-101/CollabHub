@@ -2,11 +2,14 @@ import express from "express";
 import pg from "pg";
 import bodyParser from "body-parser";
 import bcrypt from "bcrypt";
-
+import cors from "cors";
+import { log } from "console";
 
 const app = express();
 const port = 8081;
 
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }));
 const hash = "k"
 
 const myPlaintextPassword = "hihihi"
@@ -23,17 +26,26 @@ const db = new pg.Client({
   app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/", async (req,res)=>{
-    res.json("HI")
-    
-    bcrypt.hash(myPlaintextPassword, saltRounds,async function(err, hassgen) {
-        // Store hash in your password DB.
-        hash = hassgen
-        await db.query("INSERT INTO login (username,password) VALUES ($1,$2)", [
-            username,
-            hash,
-          ]);
-    });
+app.post("/login", async (req,res)=>{
+    console.log(req.body.username);
+    // res.json(req.body.username)
+
+    const pass = await db.query("SELECT password FROM login WHERE username = $1",[
+        req.body.username
+    ])
+    console.log(pass.rows[0].password);
+    if(pass.rows[0].password == req.body.password)
+        res.json({ redirectUrl: 'http://localhost:5174/' });
+        // res.redirect("https://www.google.com")
+
+    // bcrypt.hash(myPlaintextPassword, saltRounds,async function(err, hassgen) {
+    //     // Store hash in your password DB.
+    //     hash = hassgen
+    //     await db.query("INSERT INTO login (username,password) VALUES ($1,$2)", [
+    //         username,
+    //         hash,
+    //       ]);
+    // });
 
 })
 
@@ -50,20 +62,27 @@ app.get("/check", async (req,res)=>{
     });
 })
 
-app.get("/register", async(req,res)=>{
-    const name = "deva"
-    const email = "hellodeva@gmail.com"
-    const number = 1234567890
-    await db.query("INSERT INTO userdata (name,email,number) VALUES ($1,$2,$3)", [
+app.post("/register", async(req,res)=>{
+    console.log(req.body);
+    const name = req.body.username
+    const email = req.body.email
+    const pass = req.body.password
+    await db.query("INSERT INTO userdata (name,email) VALUES ($1,$2)", [
         name,
         email,
-        number
       ]);
+    await db.query("INSERT INTO login (username, password) VALUES ($1,$2)",[
+        email,
+        pass
+    ])
     res.json("uploaded")
 })
 
 app.listen(port , ()=>{
-    console.log("Port Running...")
+    console.log("Port Running...",[port])
 })
 
 //postgresql://varun:Xrl-b1P6b_d0vws_A7yiwA@collabhub-8778.8nk.gcp-asia-southeast1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full"
+
+//collab code from here
+

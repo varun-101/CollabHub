@@ -65,12 +65,18 @@ const Register = () => {
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log(user);
-      axios.post("http://localhost:9002/signup/", user).then((res) => {
+      const formData = new URLSearchParams();
+      formData.append('username', user.fname);
+      formData.append('email', user.email);
+      formData.append('password', user.password);
+      axios.post("http://localhost:8081/register", formData).then((res) => {
         alert(res.data.message);
         navigate("/login", { replace: true });
       });
     }
   }, [formErrors]);
+
+
   return (
     <>
     <div className={registerstyle.App}>
