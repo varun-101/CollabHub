@@ -44,15 +44,34 @@ const Login = ({ setUserState }) => {
   };
 
   useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(user);
-      axios.post("http://localhost:9002/login", user).then((res) => {
-        alert(res.data.message);
-        setUserState(res.data.user);
-        navigate("/", { replace: true });
-      });
-    }
+    const fetchData = async () => {
+      if (Object.keys(formErrors).length === 0 && isSubmit) {
+        try {
+          console.log(user);
+          const formData = new URLSearchParams();
+          formData.append('username', user.email);
+          formData.append('password', user.password);
+          // console.log(formData);
+          const response = await axios.post("http://localhost:8081/login",  formData,{
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }});
+          // alert(response.data.message);
+          console.log(response);
+          // setUserState(response.data);
+          navigate("/", { replace: true });
+          if (response.data.redirectUrl) {
+            window.location.href = response.data.redirectUrl; // Redirect to the specified URL
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
+    };
+  
+    fetchData(); // Call the async function
   }, [formErrors]);
+
   return (
     <div className={loginstyle.App}>
     <div className={loginstyle.login}>
@@ -80,7 +99,7 @@ const Login = ({ setUserState }) => {
           Login
         </button>
       </form>
-      <NavLink to="/signup">Not yet registered? Register Now</NavLink>
+      <NavLink to="/register">Not yet registered? Register Now</NavLink>
     </div>
     </div>
   );
