@@ -1,16 +1,18 @@
-// src/pages/ContactPage.js
 import React from 'react';
 import Header from '../Components/Header';
 
-function Codingroom() {
-  return (
-    <div>
-      <Header />
-      <h1>Coding Page</h1>
-      
-    </div>
-  )
+function callClick() {
+    window.location.href = "http://localhost:5173";
 }
 
-export default Codingroom
+function Codingroom() {
+    return (
+        <div>
+            <Header />
+            {/* Call callClick function inside an arrow function */}
+            <h1 onClick={() => callClick()}>Coding Page</h1>
+        </div>
+    );
+}
 
+export default Codingroom;

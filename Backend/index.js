@@ -88,7 +88,7 @@ app.listen(port , ()=>{
 //github api from here
 const API_URL = "https://api.github.com/search/repositories";
 
-const yourBearerToken = "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";
+const yourBearerToken = "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";
 const config = {
   headers: { Authorization: `Bearer ${yourBearerToken}` },
 };
