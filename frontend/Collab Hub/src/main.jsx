@@ -21,9 +21,10 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Signup from "./Routes/Signup";
-import Profile from "./Routes/Profile";
+// import Profile from "./Routes/Profile";
 import Login from "./Components/login/login";
 import Register from "./Components/register/register";
+import DApp from "./Routes/Dashboard/DApp";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Profile />
+    element: <DApp />
   }
 
 ]);

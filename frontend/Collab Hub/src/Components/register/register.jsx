@@ -4,6 +4,7 @@ import registerstyle from "./Register.module.css";
 import axios from "axios";
 
 import { useNavigate, NavLink } from "react-router-dom";
+import Header from "../Header";
 const Register = () => {
   const navigate = useNavigate();
 
@@ -79,6 +80,8 @@ const Register = () => {
 
   return (
     <>
+   <Header />
+
     <div className={registerstyle.App}>
       <div className={registerstyle.register}>
         <form>

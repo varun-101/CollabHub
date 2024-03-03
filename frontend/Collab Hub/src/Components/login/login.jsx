@@ -4,7 +4,12 @@ import loginstyle from "./Login.module.css";
 import axios from "axios";
 import "./login.css"
 import { useNavigate, NavLink } from "react-router-dom";
+import Header from "../Header";
+
 const Login = ({ setUserState }) => {
+
+   
+
   const navigate = useNavigate();
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -73,6 +78,8 @@ const Login = ({ setUserState }) => {
   }, [formErrors]);
 
   return (
+    <>
+    <Header />
     <div className={loginstyle.App}>
     <div className={loginstyle.login}>
       <form>
@@ -102,6 +109,7 @@ const Login = ({ setUserState }) => {
       <NavLink to="/register">Not yet registered? Register Now</NavLink>
     </div>
     </div>
+    </>
   );
 };
 export default Login;

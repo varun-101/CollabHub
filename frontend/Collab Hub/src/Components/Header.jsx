@@ -32,6 +32,7 @@
 // export default Header
 
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom';
 // import Button from './Button';
 
 const Header = () => {
@@ -64,9 +65,11 @@ const Header = () => {
 
             
           }
+          <Link to="/login">
           <button className='bg-indigo-600 text-white border-solid py-2 font-semibold px-6 rounded md:ml-8 hover:bg-indigo-500 duration-500'>
         Login/Signup
         </button>
+        </Link>
         </ul>
       </div>
     </div>
