@@ -1,0 +1,136 @@
+/* style.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .templateContainer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .darkMode .templateContainer {
+    background-color: #333;
+  }
+  
+  .themeToggle {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  
+  .themeToggle .toggle {
+    display: none;
+  }
+  
+  .themeToggle .toggle-btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+  }
+  
+  .themeToggle .toggle-btn .sun,
+  .themeToggle .toggle-btn .moon {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  .themeToggle .toggle-btn .sun i,
+  .themeToggle .toggle-btn .moon i {
+    color: #fdd835;
+  }
+  
+  .themeToggle .toggle:checked + .toggle-btn .moon {
+    transform: translateX(0);
+  }
+  
+  .themeToggle .toggle:checked + .toggle-btn .sun {
+    transform: translateX(100%);
+  }
+  
+  .searchInput_Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .searchInput_Container input {
+    width: 50%;
+    padding: 12px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+  }
+  
+  .searchInput_Container input::placeholder {
+    color: #aaa;
+  }
+  
+  .searchInput_Container input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  .filterDropdown {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .filterDropdown:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .template_Container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .template {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .darkMode .template {
+    background-color: #444;
+  }
+  
+  .template img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .template h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .darkMode .template h3 {
+    color: #fff;
+  }
+  
