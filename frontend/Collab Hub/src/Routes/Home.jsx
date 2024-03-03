@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Components/Header';
-
+import Header from '../Components/Footer';
 
 function Home() {
   return (
@@ -88,9 +88,9 @@ function Home() {
       <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600"/>
     </div>
   </div>
-</section>a
+</section>
       </div>
-      
+      <Footer/>
 
 
 
