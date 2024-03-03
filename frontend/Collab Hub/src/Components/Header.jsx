@@ -32,7 +32,7 @@
 // export default Header
 
 import React, {useState} from 'react'
-import Button from './Button';
+// import Button from './Button';
 
 const Header = () => {
   let Links =[
@@ -64,8 +64,9 @@ const Header = () => {
 
             
           }
-          <Button> get started
-              </Button>
+          <button className='bg-indigo-600 text-white border-solid py-2 font-semibold px-6 rounded md:ml-8 hover:bg-indigo-500 duration-500'>
+        Login/Signup
+        </button>
         </ul>
       </div>
     </div>
