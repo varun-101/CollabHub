@@ -38,7 +38,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   let Links =[
     {name:"Home",link:"/"},
-    {name:"Coding Room",link:"/"},
+    {name:"Coding Room",link:"http://localhost:5173"},
     {name:"About",link:"/"},
     {name:"Contact",link:"/"}
   ];
