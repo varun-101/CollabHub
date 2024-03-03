@@ -2,7 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Components/Header';
-import Header from '../Components/Footer';
+import Footer from '../Components/Footer';
+
 
 function Home() {
   return (
