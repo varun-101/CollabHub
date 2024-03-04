@@ -23,7 +23,7 @@ function Home() {
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Welcome to Collab Hub</h1>
       <p class="mb-8 leading-relaxed">Step into the realm of boundless collaboration with CollabHub! </p>
       <div class="flex w-full md:justify-start justify-center items-end">
-        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Get Started</button>
+      <a href='http://localhost:3030/login'><button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Get Started</button></a>  
       </div>
       <p class="text-sm mt-2 text-gray-500 mb-8 w-full">Register or Login?</p>
       <div class="flex lg:flex-row md:flex-col">
@@ -41,7 +41,7 @@ function Home() {
       <p class="mb-8 leading-relaxed">A collaborative coding environment where multiple developers can work together on the same project in real-time, fostering seamless collaboration and boosting productivity.</p>
       <div class="flex justify-center w-full md:justify-start justify-center items-end">
         
-        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Go to Coding Room</button>
+      <a href='http://localhost:3030/login'><button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Go to Coding Room</button></a>  
       </div>
       <p class="text-sm mt-2 text-gray-700 mb-8 w-full">Work with your peers easily.</p>
       
@@ -61,7 +61,7 @@ function Home() {
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Open Source Platform</h1>
       <p class="mb-8 leading-relaxed">An open-source platform like GitHub, focusing on repository discovery, collaboration, and learning. It offers advanced search, bookmarking, community interaction, and integration with development tools. </p>
       <div class="flex w-full md:justify-start justify-center items-end">
-        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Head to Open Source Projects</button>
+      <a href='http://localhost:3030/login'> <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Head to Open Source Projects</button></a> 
       </div>
       <p class="text-sm mt-2 text-gray-500 mb-8 w-full">What you waiting for?</p>
       <div class="flex lg:flex-row md:flex-col">

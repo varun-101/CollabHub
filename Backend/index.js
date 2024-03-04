@@ -36,7 +36,7 @@ app.post("/login", async (req,res)=>{
     ])
     console.log(pass.rows[0].password);
     if(pass.rows[0].password == req.body.password)
-        res.json({ redirectUrl: 'http://localhost:5174/' });
+        res.json({ redirectUrl: 'http://localhost:4040/' });
         // res.redirect("https://www.google.com")
 
     // bcrypt.hash(myPlaintextPassword, saltRounds,async function(err, hassgen) {
@@ -88,7 +88,7 @@ app.listen(port , ()=>{
 //github api from here
 const API_URL = "https://api.github.com/search/repositories";
 
-const yourBearerToken = "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";
+const yourBearerToken = "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";
 const config = {
   headers: { Authorization: `Bearer ${yourBearerToken}` },
 };
